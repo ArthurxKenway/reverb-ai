@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures video fills the splash window */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Removed 'muted' to allow sound -->
+  <video id="vid" autoplay playsinline>
+    <source src="startup-video.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+    const video = document.getElementById('vid');
+
+    // Force volume to 100%
+    video.volume = 1.0;
+
+    // Transition to main app when video ends
+    video.onended = () => {
+      ipcRenderer.send('startup-video-finished');
+    };
+
+    // Safety: If the video fails or format is unsupported, skip to app
+    video.onerror = () => {
+      console.error("Video/Audio failed to load.");
+      ipcRenderer.send('startup-video-finished');
+    };
+
+    // Force play in case of autoplay restrictions
+    video.play().catch(err => {
+      console.warn("Autoplay with audio was blocked:", err);
+      // If blocked, we skip to the app rather than staying on a black screen
+      ipcRenderer.send('startup-video-finished');
+    });
+  </script>
+</body>
+</html>

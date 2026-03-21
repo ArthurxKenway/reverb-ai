@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Roboto Mono", monospace;
+}
+
+/* titlebar css */
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  background: #000; /* Match your app background */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.drag-region {
+  flex-grow: 1;
+  height: 100%;
+  -webkit-app-region: drag; /* This makes the bar draggable */
+}
+
+.controls {
+  display: flex;
+  -webkit-app-region: no-drag; /* This makes the buttons clickable */
+}
+
+.controls button {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 45px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+:root {
+  /* Reverb Theme */
+  --bg-main: #0a0a0a;
+  --bg-content: #e4e3e0;
+  --bg-sidebar: #2d2d2d;
+  --bg-card: #333333;
+  --bg-banner: #1a1a1a;
+  --bg-surface: #ffffff;
+
+  --text-main: #ffffff;
+  --text-content: #000000;
+  --text-sidebar: #ffffff;
+  --text-card: #ffffff;
+  --text-banner: #ffffff;
+  --text-surface: #000000;
+
+  --accent: #ef4444;
+  --border-color: rgba(0, 0, 0, 0.2);
+  --border-light: rgba(255, 255, 255, 0, 1);
+}
+
+[data-theme="midnight"] {
+  --bg-main: #020617;
+  --bg-content: #0f172a;
+  --bg-sidebar: #1e293b;
+  --bg-card: #1e293b;
+  --bg-banner: #020617;
+  --bg-surface: #1e293b;
+
+  --text-main: #f8fafc;
+  --text-content: #f8fafc;
+  --text-sidebar: #f8fafc;
+  --text-card: #f8fafc;
+  --text-banner: #f8fafc;
+  --text-surface: #f8fafc;
+
+  --accent: #3b82f6; /* blue-500 */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="forest"] {
+  --bg-main: #052e16;
+  --bg-content: #f0fdf4;
+  --bg-sidebar: #14532d;
+  --bg-card: #166534;
+  --bg-banner: #064e3b;
+  --bg-surface: #ffffff;
+
+  --text-main: #ffffff;
+  --text-content: #052e16;
+  --text-sidebar: #ffffff;
+  --text-card: #ffffff;
+  --text-banner: #ffffff;
+  --text-surface: #052e16;
+
+  --accent: #22c55e; /* green-500 */
+  --border-color: rgba(5, 46, 22, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="sunset"] {
+  --bg-main: #450a0a;
+  --bg-content: #fff7ed;
+  --bg-sidebar: #7c2d12;
+  --bg-card: #9a3412;
+  --bg-banner: #431407;
+  --bg-surface: #ffffff;
+
+  --text-main: #ffffff;
+  --text-content: #450a0a;
+  --text-sidebar: #ffffff;
+  --text-card: #ffffff;
+  --text-banner: #ffffff;
+  --text-surface: #450a0a;
+
+  --accent: #f97316; /* orange-500 */
+  --border-color: rgba(69, 10, 10, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="cyberpunk"] {
+  --bg-main: #000000;
+  --bg-content: #09090b;
+  --bg-sidebar: #18181b;
+  --bg-card: #27272a;
+  --bg-banner: #000000;
+  --bg-surface: #18181b;
+
+  --text-main: #fdf028; /* yellow */
+  --text-content: #fdf028;
+  --text-sidebar: #fdf028;
+  --text-card: #fdf028;
+  --text-banner: #fdf028;
+  --text-surface: #fdf028;
+
+  --accent: #ec4899; /* pink-500 */
+  --border-color: rgba(253, 240, 40, 0.2);
+  --border-light: rgba(253, 240, 40, 0.2);
+}
+
+[data-theme="minimal"] {
+  --bg-main: #ffffff;
+  --bg-content: #f9fafb;
+  --bg-sidebar: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-banner: #ffffff;
+  --bg-surface: #ffffff;
+
+  --text-main: #000000;
+  --text-content: #000000;
+  --text-sidebar: #000000;
+  --text-card: #000000;
+  --text-banner: #000000;
+  --text-surface: #000000;
+
+  --accent: #000000;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-light: rgba(0, 0, 0, 0.1);
+}
